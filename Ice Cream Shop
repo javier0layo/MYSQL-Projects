@@ -1,4 +1,4 @@
-/* This project is designed to create an ice cream store, and using the ORDER BY and WHERE function**/
+This repository is for creating an ice cream store database. Creating a table for the store, using select statement, and gather statistics from the table.  
 
 CREATE TABLE Ice_Cream_Table(Item_ID INTEGER PRIMARY KEY, Brand TEXT, Flavor TEXT, Price  INTEGER, Rate INTEGER);
 
