@@ -69,33 +69,42 @@ INSERT INTO winstons_donut_logs VALUES (53, "old-ish adult winston lvl4", 53, 14
 SELECT * FROM WINSTONS_DONUT_LOGS;
 
 /** Average donuts eaten **/
-SELECT ROUND(AVG(donuts_eaten)) AS avg_donuts_eaten FROM WINSTONS_DONUT_LOGS;
+SELECT ROUND(AVG(donuts_eaten)) AS avg_donuts_eaten 
+FROM WINSTONS_DONUT_LOGS;
 
 /**Max donuts eaten**/
-SELECT ROUND(MAX(donuts_eaten)) AS max_donuts_eaten FROM WINSTONS_DONUT_LOGS;
+SELECT ROUND(MAX(donuts_eaten)) AS max_donuts_eaten 
+FROM WINSTONS_DONUT_LOGS;
 
 /**Min donuts eaten**/
-SELECT ROUND(MIN(donuts_eaten)) AS min_donuts_eaten FROM WINSTONS_DONUT_LOGS;
+SELECT ROUND(MIN(donuts_eaten)) AS min_donuts_eaten 
+FROM WINSTONS_DONUT_LOGS;
 
 /** Will display in order the average donuts eaten by status having more than 1000 average donuts eaten.
 
 Will let us identify which groups eat the most donuts**/
-SELECT STATUS, ROUND(AVG(DONUTS_EATEN)) AS avg_donuts_eaten FROM WINSTONS_DONUT_LOGS GROUP BY STATUS HAVING avg_donuts_eaten > 1000 ORDER BY avg_donuts_eaten;
+SELECT STATUS, ROUND(AVG(DONUTS_EATEN)) AS avg_donuts_eaten 
+FROM WINSTONS_DONUT_LOGS 
+GROUP BY STATUS 
+HAVING avg_donuts_eaten > 1000 
+ORDER BY avg_donuts_eaten;
 
 /**Will create a table listing the level of consuption correlated to the amount of donuts eaten.**/
 
 SELECT DONUTS_EATEN,
-CASE
-WHEN DONUTS_EATEN > 1547 THEN "Above Average"
-WHEN DONUTS_EATEN < 1547 THEN "Below Average" 
-ELSE "Average"
-END AS "donut_consuption_level"
+    CASE
+        WHEN DONUTS_EATEN > 1547 THEN "Above Average"
+        WHEN DONUTS_EATEN < 1547 THEN "Below Average" 
+        ELSE "Average"
+    END AS "donut_consuption_level"
 FROM WINSTONS_DONUT_LOGS
 GROUP BY DONUTS_EATEN;
 
 /** Display table where donuts eaten were less that 1500 due to dieting or healthier eating. **/
 
-SELECT * FROM WINSTONS_DONUT_LOGS WHERE DONUTS_EATEN  < 1500 AND REASON LIKE 'Diet%' OR REASON LIKE '%Healthier Eating%';
+SELECT * 
+FROM WINSTONS_DONUT_LOGS 
+WHERE DONUTS_EATEN  < 1500 AND REASON LIKE 'Diet%' OR REASON LIKE '%Healthier Eating%';
 
 
 
