@@ -1,4 +1,4 @@
-
+/** This project is meant to demonstarte the use of JOIN, using multiple tables to query better result that combine information.**/
 /** Create table for famous people. **/
 CREATE TABLE FAMOUSPEOPLE (
     ID INTEGER PRIMARY KEY AUTOINCREMENT, 
